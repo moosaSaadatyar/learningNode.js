@@ -1,0 +1,1 @@
+npm install primeng chart.js --registry=http://repo.infra.baharan.local/repository/npm-group/ --force 
