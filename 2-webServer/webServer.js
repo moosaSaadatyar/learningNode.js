@@ -15,7 +15,14 @@ const server = http.createServer((req, res) => {
 
   if (items[1] === 'friends') {
     res.setHeader('Content-Type', 'application/json')
-
+    if (req.method === 'POST') {
+          req.on('data', (data) => {
+            console.log(data.toString());
+            const friend = data.toString()
+            friends.push(JSON.parse(friend))
+    
+          })
+        }
     if (
       Number.isInteger(lastNumber) &&
       lastNumber >= 0 &&
@@ -51,3 +58,4 @@ const server = http.createServer((req, res) => {
 server.listen(port, () => {
   console.log(`listening on port ${port}`)
 })
+
